@@ -1,6 +1,8 @@
 set nocompatible
 set encoding=utf8
 
+set guifont=Consolas:h16
+
 " set foldmethod=manual
 " set foldmethod=indent
 
