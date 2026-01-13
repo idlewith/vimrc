@@ -1,7 +1,46 @@
 set nocompatible
 set encoding=utf8
+set guioptions-=T
 
+set number
 set guifont=Consolas:h16
+set backspace=indent,eol,start
+set noro
+
+
+augroup AutoSave
+    autocmd!
+    autocmd InsertLeave * silent write
+augroup END
+
+
+let g:iswindows = 0
+let g:islinux = 0
+if (has("win32") || has("win64") || has("win95") || has("win16"))
+    let g:iswindows = 1
+else
+    let g:islinux = 1
+endif
+
+if g:iswindows
+    source $VIMRUNTIME/vimrc_example.vim
+    source $VIMRUNTIME/mswin.vim
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
+    behave mswin
+endif
+
+
+if has("gui_running")
+    let g:isgui = 1
+else
+    let g:isgui = 0
+endif
+
+
+set langmenu=en_US
+let $LANG = 'en_US'
+
 
 " set foldmethod=manual
 " set foldmethod=indent
@@ -15,19 +54,19 @@ syntax on
 set nobackup
 set noswapfile
 set nowritebackup
-set noro
 
 set ignorecase
 set nu
-set relativenumber
 set clipboard+=unnamed
-set scrolloff=30
+set scrolloff=5
+set wildmenu
 
 filetype plugin indent on
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set shiftround
 
 
 nmap <CR> o<ESC>
