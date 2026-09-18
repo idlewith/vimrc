@@ -10,7 +10,7 @@ set noro
 
 augroup AutoSave
     autocmd!
-    autocmd InsertLeave * silent write
+    autocmd InsertLeave,BufLeave,FocusLost * silent write
 augroup END
 
 
